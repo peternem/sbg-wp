@@ -1,0 +1,3000 @@
+/*
+Theme Name: SBGI Sparkling Theme
+Theme URI: http://colorlib.com/wp/themes/sparkling
+Author: Colorlib
+Author URI: http://##/
+Description: SBGI Sparkling Theme is a clean minimal and responsive WordPress theme well suited for travel, health, business, finance, portfolio, design, art, photography, personal and any other creative websites and blogs. Developed using Bootstrap 3 that makes it mobile and tablets friendly. Theme comes with full-screen slider, social icon integration, author bio, popular posts widget and improved category widget. Sparkling incorporates latest web standards such as HTML5 and CSS3 and is SEO friendly thanks to its clean structure and codebase. It has dozens of Theme Options to change theme layout, colors, fonts, slider settings and much more. Theme is also translation and multilingual ready and is available in Spanish, French, Dutch, Polish, Russian, German, Brazilian Portuguese, Portuguese (Portugal), Persian (Iranian language), Romanian and Italian. Sparkling is a free WordPress theme with premium functionality and design. Now theme is optimized to work with bbPress, Contact Form 7, Jetpack and other popular free and premium plugins.
+Version: 1.7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  SBGI Sparkling Theme
+Domain Path: /languages/
+Tags: green, light, white, gray, black, one-column, two-columns, right-sidebar, fluid-layout, responsive-layout, photoblogging, left-sidebar, translation-ready, custom-background, custom-colors, custom-menu, featured-images, full-width-template, post-formats, theme-options, threaded-comments
+
+This theme, like WordPress, is licensed under the GPL.
+
+sparkling is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
+
+*/
+
+/* Table of content
+-----------------------------------------------
+1. Global
+2. Content
+3. Post styling
+4. Singe Post/Page Pagination
+5. Media
+6. Widgets
+7. Buttons
+8. Infinite Scroll
+8. Custom Styles
+9. Navigation
+10. Comments
+11. Attachment styling
+12. Gallery
+13. Footer
+14. Social icons
+15. Call For Action
+*/
+
+/* =Global
+----------------------------------------------- */
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,800);
+@import "inc/bootstrap/less/variables";
+
+@content-top-margin: 80px;
+@secondary-font: 'Oswald', Helvetica, Arial, sans-serif;
+@calBlueColor: #11518f;
+@calBorder: 1px solid #e5e5e5;
+@calItemWidth: 290px;
+@calTitleColor: #f4f4f4;
+@calLinkColor: black;
+@gray-lightest: #B0AFAF;
+
+/*Buttons
+------------------------------------------------*/
+a {
+    transition: 0.2s ease;
+    -webkit-transition: 0.2s ease;
+    -moz-transition: 0.2s ease;
+    -o-tranisiton: 0.2s ease;
+}
+
+a.btn-link {
+    border-bottom: 2px solid rgba(0,0,0, 0);
+    &:hover {
+        border-bottom: 2px solid @gray-light;
+        color: @gray-light;
+    }
+}
+
+.btn-link, .btn-link-light {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	padding-bottom: 5px;
+}
+
+a.btn-link-light {
+    border-bottom: 2px solid rgba(0,0,0, 0);
+    &:hover {
+        border-bottom: 2px solid @gray-lightest;
+        color: @gray-lightest;
+        text-decoration: none;
+    }
+}
+
+.post-links {
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid rgba(0,0,0, 0);
+	color: @brand-primary;
+	margin-top: 25px;
+	.fa {
+		font-size: 9px;
+
+	}
+	.fa-chevron-left {
+		margin-right: 8px;
+		display: block;
+		float: left;
+		margin-top: 11px;
+	}
+	.fa-chevron-right {
+		margin-left: 8px;
+		display: block;
+		float: right;
+		margin-top: 11px;
+	}
+	&:hover {
+        border-bottom: 2px solid @gray-lightest;
+        color: @gray-lightest;
+        text-decoration: none;
+	    transition: 0.2s ease;
+	    -webkit-transition: 0.2s ease;
+	    -moz-transition: 0.2s ease;
+	    -o-tranisiton: 0.2s ease;
+
+	}
+}
+
+.btn-link-light {
+    color: white;
+}
+
+.added-margin {
+    margin-right: 24px;
+}
+
+a:hover {
+	color: @gray-light;
+	text-decoration: none;
+}
+
+.btn-block {
+	background: @brand-primary;
+	color: white;
+	&:hover {
+		background: @gray;
+		color: white;
+	}
+}
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    &.aligncenter {
+	    display: block;
+	    margin: 0 auto;
+	}
+	&.company-logo {
+	    display: inline-block;
+	    margin:15px 20px 20px 0;
+	}
+}
+
+.wp-relative {
+	position: absolute;
+	bottom: 30px;
+}
+
+/* Grayscale Rollover effect.  Also uses greyscale-functions, imagesloaded js scripts
+ * For effect to work css class name of '.grayscale' must be added to parent element of targeted image.
+------------------------------------------------*/
+
+.grayscale img {
+    -webkit-filter: grayscale(70%); /* Webkit Nightlies & Google Chrome Canary */
+    -webkit-transition: all .3s ease-in-out;/* Fade to color for Chrome and Safari */
+    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\"pictureFilter\" ><feColorMatrix type=\"saturate\" values=\"0.3\" /></filter></svg>#pictureFilter"); /* Firefox 10+, Firefox on Android */
+    filter: gray(70%); /* IE8-9 */
+}
+.grayscale img:hover {
+    -webkit-filter: grayscale(0%);
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    filter:  grayscale(0%); /* Applies to FF + IE */
+}
+
+/* IE 8 Specific Web Browser Fixes
+------------------------------------------------*/
+
+.ie8 {
+	p {
+		font-weight: 400;
+	}
+	.sbgi-spotlight {
+		.list-group-item {
+		    background-color: #1790d2 !important;
+		    > .badge {
+			    background-color: #1887C4 !important;
+			}
+		}
+	}
+	#News, .page-template-history, #WhatWeDo {
+		background-image: none;
+		background-color: #00508d;
+	}
+	.timeline-panel {
+	    background-color: #ffffff;
+	}
+}
+
+/*Typography
+------------------------------------------------*/
+
+h1, .h1 {
+    font-weight: 700;
+}
+
+h2, .h2 {
+    font-weight: 700;
+    font-size: 54px;
+    text-transform: lowercase;
+    margin: 0 0 32px 0;
+}
+
+h3, .h3 {
+    font-weight: 300;
+}
+
+/*Parallax 
+------------------------------------------------*/
+
+body.parallax .parallax, body.parallax .parallax1, body.parallax .parallax3,  body.parallax .parallax6 {
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#EarningsWebcast {
+    background-position: center center;
+    background-size: cover;
+    padding-bottom: 75px;
+}
+
+#WhatWeDo {
+    background-position: center center;
+    background-size: cover;
+    .row {
+    	margin: 0 auto;
+    	max-width: 1314px;	
+    	
+    	&.full-bleed {
+    		max-width: 100%; 
+    	}
+    }
+}
+
+.row.pr-archive {
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.full-bg-pattern::before {
+	content: '';
+	height: 100%;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	z-index: 0;
+}
+
+.full-bg-pattern {
+	position:relative;
+	padding:0;
+}
+
+.full-bg-pattern1 {
+    padding-bottom: 50px;
+}
+
+#Awards {
+    background-position: center center;
+    background-size: cover;
+}
+
+#AnRepCarousel, #WhatWeDo, #Awards, #EarningsWebcast {
+    z-index: 2;
+}
+
+/*Home Page Styling
+------------------------------------------------*/
+
+#CompanyHistory,  #WhatWeDo {
+	color: #fff;
+	.panel-body {
+		color: #000;
+		min-height: 110px;
+	}
+}
+
+#SbgiCareers {
+  	background-repeat: no-repeat;
+  	background-position: left top;
+  	img {
+  		display: none;
+  	}
+}
+
+#SbgiCareers .intro-8 {
+	background: rgba(239, 239, 239, 0.8);
+  	padding: 0 25px 20px;
+}
+
+/*Header Styling
+------------------------------------------------*/
+
+.navbar-fixed-top { 
+	top: 0px; 
+}
+
+.navbar-default {
+	background-color: #fff;
+	.navbar-nav > li > a {
+		padding-top: 26.5px;
+	    font-size: 14px;
+	    text-transform: uppercase;
+	}
+	.navbar-toggle {
+		margin-top: 22px;
+		border:none;
+	}
+}
+
+.dropdown .sbg-nav-sub a{
+    color: @brand-secondary;
+    padding-top: 10px;
+
+}
+
+.navbar-brand {
+    float: none;
+    font-weight: 300;
+    font-size: 20px; 
+    padding: 18px 0;
+}
+
+.navbar-right {
+    margin-right: 60px;
+}
+
+#logo {
+	padding: 8px 0;
+	margin-left:60px;
+	display: flex;
+}
+
+/* Home page Spotlight - News 
+----------------------------------------------- */
+
+.admin-bar .sbgi-spotlight {
+    top: 145px;
+}
+
+.sbgi-spotlight {
+    position: absolute;
+    right: 0;
+    top: 115px;
+    width: 290px;
+    z-index: 100;
+    .list-group-item {
+    	background-color: rgba(23, 144, 210, 0.6);
+    	overflow: auto;
+    	padding: 0;
+    	border: none;
+    	> .badge {
+    		background-color: rgba(23, 144, 210, 0.8);
+		    border-radius: 0;
+		    display: table;
+		    color: #b9cede;
+		    float: left;
+		    width: 15%;
+		    height: 50px;
+		    font-size: 28px;
+		    line-height: 44px;
+		    padding: 0px;
+		}
+    }
+    .list-content {
+	    display: block;
+	    overflow: auto;
+	    width: 85%;
+	    margin-bottom: 0;
+	    p {
+	   		font-size: 14px;
+	   		line-height: 16px;
+	   		color: #e8e8e8;
+	   		padding: 10px 15px;
+	   		margin-bottom: 0;
+	   		a {
+	   			color: #e8e8e8;
+	   		}
+	    }
+	}
+	.fa.fa-info {
+	    display: table-cell;
+	    vertical-align: middle;
+	}
+}
+
+@media (max-width: 1024px) {
+	.sbgi-spotlight {
+	    position: relative;
+	    width: 100%;
+	    top: 0;
+	    margin-bottom: 0;
+	    .list-content {
+		    width: auto;
+		}
+	}
+}
+  
+/* Hero Area Styling - Home page Carousel and Background Video
+----------------------------------------------- */
+
+.hero-container {
+	position: relative;
+	margin-top: 80px;
+}
+
+.soft-bg-1:before {
+    background-color: rgba(10, 10, 10, 0.5);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.pattern-black:before {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.static-hero {
+	&.visible-xs-block {
+	    margin-top: 63px;
+	    position: relative;
+	}
+	.carousel-caption {
+	    left: 2%;
+	    margin-top: 0;
+	    right: 2%;
+	    bottom: auto;
+	    padding: 0;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    -webkit-transform: translateY(-50%);
+	}
+	img {
+		width: 100%;
+	}
+}
+
+#AnRepCarousel  {
+	.carousel-inner {
+	    margin: 0 auto;
+	    width: 90%;
+	}
+	.panel-default {
+		border: none;
+	}
+	.carousel-control {
+	    &.left {
+	    	background: none;
+	    }
+	    &.right {
+	    	background: none;
+	    }
+	}
+	.report {
+	    background-color: #115190;
+	    color:#fff;
+	    text-align: center;
+	   
+	    .ar-File { 
+	    	color: #ffffff;
+		    display: block;
+		    font-weight: 300;
+		    font-family: @secondary-font;
+		    
+	    }
+		.ar-thumb {
+		    margin: 0 auto;
+		    max-width: 100%;
+		    margin-bottom: 10px;
+		}
+		.panel-body {
+		    padding: 15px;
+		    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .4);
+		    -webkit-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .4);
+		    -moz-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .4);
+		    -o-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .4);
+		}
+	}
+	.left.carousel-control, .right.carousel-control  {
+	    width: 5%;
+	}
+}
+
+.carousel.fade {
+    opacity: 1;
+    .item {
+        -moz-transition: opacity ease-in-out .5s;
+        -o-transition: opacity ease-in-out .5s;
+        -webkit-transition: opacity ease-in-out .5s;
+        transition: opacity ease-in-out .5s;
+        left: 0 !important;
+        opacity: 0;
+        top:0;
+        position:absolute;
+        width: 100%;
+        display:block !important;
+        z-index:1;
+        &:first-child{
+            top:auto;
+            position:relative;
+        }
+
+        &.active {
+            opacity: 1;
+            -moz-transition: opacity ease-in-out .5s;
+            -o-transition: opacity ease-in-out .5s;
+            -webkit-transition: opacity ease-in-out .5s;
+            transition: opacity ease-in-out .5s;
+            z-index:2;
+        }
+    }
+}
+
+#myCarousel {
+    height: 100%;
+    left: 0;
+    margin: 0px auto;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    .carousel-inner {
+	    height: auto;
+	    margin: 0 auto;
+	    max-width: 1374px;
+	    position: relative;
+	   
+	    
+	    width: 100%;
+	    > .item {
+		    height: 300px;
+		}
+		&.csstransforms {
+			transform: translateY(-50%);
+        	-webkit-transform: translateY(-50%);
+        	 top: 50%;
+		}
+		&.no-csstransforms {
+			 top: 35%;
+		}
+	}
+	.carousel-caption {
+	    h1 {
+	    	font-weight: 300;
+	    	text-transform: uppercase;
+	    }
+	    P {
+	    	font-size: 30px;
+	    	font-weight: 300;
+	    }
+	}
+}
+
+/* Carousel - News - SBGI Home page
+----------------------------------------------- */
+
+#carousel-news {
+	&.carousel-news {
+	    margin-top: 50px;
+	    margin-bottom: 25px;
+	   	padding-left: 4%;
+	    padding-right: 4%;
+	}
+	.carousel-control { 
+		opacity: 1;
+		width:  4%;
+	}
+	.carousel-control.left, .carousel-control.right {
+		background-image:none;
+	}
+	.panel {
+		height: 200px;
+		border: 1px solid #808285;
+	}
+	.panel-heading {
+	    padding: 30px 30px 20px 30px;
+	    color: #1790D2;
+		font-size: 18px;
+		font-family: @secondary-font;
+	}
+	.panel-body {
+	    padding: 0 30px 30px 30px;
+	    p { 
+			color: #333333;
+			font-size: 14px;
+			line-height: 22px;
+			font-weight: 400;
+		}
+	}
+	.date {
+		a {
+			color: #1790D2;
+			letter-spacing: 1px;
+		}
+  
+	}
+	.carousel-inner > .item.next,
+	.carousel-inner > .item.active.right {
+		transform: translate3d(33.33%, 0, 0) ;
+		left: 0;
+
+	}
+	.carousel-inner > .item.prev,
+	.carousel-inner > .item.active.left {
+		transform: translate3d(-33.33%, 0, 0);
+    	left: 0;
+
+	}
+	.carousel-inner > .item.next.left,
+	.carousel-inner > .item.prev.right,
+	.carousel-inner > .item.active {
+		transform: translate3d(0, 0, 0);
+    	left: 0;
+	}
+}
+
+.carousel-control {
+	    &.left {
+	    	background: none;
+	    	filter: none;
+	    }
+	    &.right {
+	    	background: none;
+	    	filter: none;
+	    }
+	}
+
+.carousel-control img {
+	position: absolute;
+	top: 35%;
+}
+
+.right.carousel-control {
+	padding-left: 25px;
+}
+
+
+#News .more-pr {
+	margin-bottom: 100px;
+	text-align: center;
+	a {
+		.fa {
+		    margin-left: 8px;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	#carousel-news .active > div { display:none; }
+	#carousel-news .active > div:first-child { display:block; }
+
+}
+
+@media (min-width: 767px) and (max-width: 992px ) {
+	#carousel-news .active > div { display:none; }
+	#carousel-news .active > div:first-child { display:block; }
+	#carousel-news .active > div:first-child + div { display:block; }
+
+		#carousel-news {
+			.carousel-inner > .item.next,
+			.carousel-inner > .item.active.right {
+				transform: translate3d(50%, 0, 0) ;
+				left: 0;
+
+				}
+			.carousel-inner > .item.prev,
+			.carousel-inner > .item.active.left {
+				transform: translate3d(-50%, 0, 0);
+		    	left: 0;
+
+				}
+
+		}
+
+}
+@media (min-width: 480px) and (max-width: 766px ) {
+		#carousel-news {
+			.carousel-inner > .item.next,
+			.carousel-inner > .item.active.right {
+				transform: translate3d(100%, 0, 0) ;
+				left: 0;
+
+				}
+			.carousel-inner > .item.prev,
+			.carousel-inner > .item.active.left {
+				transform: translate3d(-100%, 0, 0);
+		    	left: 0;
+
+				}
+
+		}
+
+
+}
+
+/* PR NewsPost List - SBGI Company News Page
+----------------------------------------------- */
+
+.pr-news-list {
+	.arch-panel {
+		display: none;
+	}
+	h2 {
+	    color: #8a8a8a;
+	    font-family: @secondary-font;
+	    font-size: 42px;
+	    font-weight: 400;
+	    margin-bottom: 38px;
+	}
+	.date > a {
+	    font-family: @secondary-font;
+	    font-weight: 400;
+	    letter-spacing: 1px;
+	}
+	.pr-news-headline {
+		color: #333;
+
+		&:hover {
+			color: @gray-lightest;
+		}
+	}
+}
+
+.pr-news-list {
+	.pr-dropdown  {
+	    margin: 0 auto 5%;
+	    text-align: center;
+	    width: 150px;
+	   	button {
+	   		border: none;
+		    color: #8a8a8a;
+	    	font-family: "Oswald",Helvetica,Arial,sans-serif;
+	    	font-size: 42px;
+	    	font-weight: 400;
+	    	width: 100%;
+	    	.fa-angle-down {
+			    margin-left: 5px;
+			}
+		}
+		li a {
+		    font-size: 18px;
+		}
+	}	
+}
+
+
+/* Contact Form Styling - Contact page
+----------------------------------------------- */
+
+.fscf-div-form {
+    width: 90%;
+    margin-bottom: 48px;
+    .form-group {
+	    
+	}
+    .fscf-required-text {
+		font-size: 16px;
+	}
+	.fscf-div-error {
+	    color: #ff0000;
+	    font-size: 16px;
+	}
+	.form-control {
+		color: #999999;
+		box-shadow: none;
+	}
+	.fscf-div-field {
+		margin-bottom: 25px;
+		overflow: auto;
+		textarea, input, select {
+			border: 1px solid #e3e4e4;
+		    border-radius: 0;
+		    font-size: 16px;
+		    font-weight: 300;
+		    line-height: 1.33;
+		    padding: 10px 16px;
+		    width: 100%;
+		    background-color: #f4f4f4;
+		}
+		select {
+			border-radius: 0;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		    text-indent: 1px;
+		    text-overflow: '';
+			background: #f4f4f4 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAwCAIAAAD/zu84AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjFCQzlGMjdERDE4NjExRTQ4MkM0OUJGODQ4QjgyNUNFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjFCQzlGMjdFRDE4NjExRTQ4MkM0OUJGODQ4QjgyNUNFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MUJDOUYyN0JEMTg2MTFFNDgyQzQ5QkY4NDhCODI1Q0UiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MUJDOUYyN0NEMTg2MTFFNDgyQzQ5QkY4NDhCODI1Q0UiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7nXUnYAAAAlElEQVR42uzWOwrAIBAE0CQIVp7Ns3oOD+EF7LSxy4AgEomFHwhhtpC4G+aBhShijMfOuo7NRYAAAQIECBD4JuCc8963/6GJ0QLAWmuMeRjYoonRAkBrrZSqjZyOJkYDwNk+vFJKSAwh5MSSLqVcA9QGvmfSX4Fi5EMbTu8B2cA6k44SndlkNK8KAgQIECDwJ+AWYAA6uFHKY5ckCgAAAABJRU5ErkJggg==") no-repeat right center;
+		}
+	}
+	.fscf-button-submit {
+	    background-color: #115190;
+	    color: #ffffff;
+	    font-weight: 300;
+	    padding: 10px 84px;
+	    text-transform: uppercase;
+	    &:hover {
+	    	color: #ccc;
+	    }
+	}
+	
+}
+
+/* Timeline Tree Styling - Our History page
+----------------------------------------------- */
+
+.page-template-history {
+	background-position: center center;
+    background-size: cover !important;
+   	h1 {
+		color: white;
+		padding-top: 48px;
+	}
+	.entrytext {
+		color: white;
+		font-weight: 300;
+		font-size: 20px;
+		line-height: 40px;
+		text-align: center;
+        padding: 0 20px;
+	}
+}
+
+.history-bg-pattern::before {
+	content: '';
+	height: 100%;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	z-index: -1;
+}
+
+.history-bg-pattern {
+	position:relative;
+	margin-left: -15px;
+	margin-right: -15px;
+	overflow: hidden;
+}
+
+.timeline {
+    list-style: outside none none;
+    position: relative;
+}
+
+.timeline-body {
+    margin-bottom: 10px;
+    overflow: auto;
+    color: #333;
+    font-size: 16px;
+}
+
+.timeline-footer {
+	a.btn {
+    	float: right;
+    }
+}
+
+.timeline:before {
+    top: 45px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    left: 50%;
+    border-right: dotted @gray-light 2px;    
+}
+
+.timeline::after {
+  content: '';
+  background: @gray-dark;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  border: 2px solid @gray-light;
+  margin-left: -0.45%;
+}
+
+.timeline li {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.timeline > li:after {
+    clear: both;
+}
+
+.timeline > li:before,
+.timeline > li:after {
+    content: " ";
+    display: table;
+}
+
+.timeline > li:before,
+.timeline > li:after {
+    content: " ";
+    display: table;
+}
+
+.timeline li .timeline-panel:hover {
+	background: rgba(255, 255, 255, 1);
+    text-decoration: none;
+	&:after{
+		opacity: 1;
+	}
+}
+
+.timeline > li > .timeline-panel {
+    width: 46%;
+    float: left;
+ 	background: rgba(255, 255, 255, .75);
+    border-radius: 2px;
+    padding: 25px;
+    position: relative;
+    margin-bottom: 25px;
+    margin-left: -15px;
+    font-weight: 300;
+    transition: ease .25s;
+    -webkit-transtion: ease .25s;
+    -moz-transition: ease .25s;
+    -o-transition: ease .25s;
+}
+
+.timeline > li > .timeline-panel:after {
+    position: absolute;
+    top: 27px;
+    right: -14px;
+    display: inline-block;
+    border-top: 14px solid transparent;
+    border-left: 14px solid #fff;
+    border-right: 0 solid #fff;
+    border-bottom: 14px solid transparent;
+    content: " ";
+    opacity: .75;
+    transition: ease .25s;
+    -webkit-transtion: ease .25s;
+    -moz-transition: ease .25s;
+    -o-transition: ease .25s;
+}
+
+.timeline-normal .timeline-heading {
+    position: absolute;
+    right: -220px;
+}
+
+.timeline-inverted .timeline-heading {
+    position: absolute;
+    left: -220px;
+}
+
+.timeline > li > .timeline-badge {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 30px;
+    left: 47.65%;
+    background-color: #999999;
+    border-radius: 50%;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel {
+    float: right;
+    margin-right: 25px;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+}
+
+.timeline-badge.info {
+    background-color: @brand-secondary !important;
+    border: 2px solid white;
+}
+
+.timeline-title {
+    margin-top: -10px;
+    color: white;
+    font-family: @secondary-font;
+    font-weight: 400;
+}
+
+.read-more {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
+}
+
+/* Timeline post Styling - content-history
+----------------------------------------------- */
+
+body.single-history {
+	.container-fluid {
+		padding:0;
+	}
+}
+
+#sbghistory {
+	height: 550px;
+}
+
+.full-width-header {
+    position: relative;
+}
+
+.full-width-header::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+   	background: rgba(255,255,255,0);
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(12,12,12,0) 62%, rgba(0,0,0,0) 65%, rgba(0,0,0,0) 72%, rgba(0,0,0,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(62%, rgba(12,12,12,0)), color-stop(65%, rgba(0,0,0,0)), color-stop(72%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(12,12,12,0) 62%, rgba(0,0,0,0) 65%, rgba(0,0,0,0) 72%, rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(12,12,12,0) 62%, rgba(0,0,0,0) 65%, rgba(0,0,0,0) 72%, rgba(0,0,0,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(12,12,12,0) 62%, rgba(0,0,0,0) 65%, rgba(0,0,0,0) 72%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(12,12,12,0) 62%, rgba(0,0,0,0) 65%, rgba(0,0,0,0) 72%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 );
+}
+
+.jumbo {
+    color:white;
+    position: absolute;
+    top:0;
+    margin: -260px 0 0 0;
+    z-index: 2;
+    font-family: @secondary-font;
+    font-weight: 400;
+    font-size: 170px;
+}
+
+/* SBGI News Template
+----------------------------------------------- */
+
+body.page-template-news {
+	    .container-fluid {
+          width: 100%;
+          padding: 0px;
+    }
+    	.row {
+    		margin: 0;
+    	}
+    	.white-band {
+        padding-top: 100px;
+    }
+    .site-navigation-inner.col-sm-12 {
+    	padding: 0;
+    }
+}
+
+/* SBGI 100 Template
+----------------------------------------------- */
+body.page-template-sbgi-page-100 {
+	.row.sbg-page-content {
+	    max-width: 900px;
+	    margin: 50px auto;
+	}
+}
+
+/* SBGI 75/25 Template
+----------------------------------------------- */
+body.page-template-sbgi-page-25-75 {
+
+    .container-fluid {
+          width: 100%;
+          padding: 0px;
+    }
+    .row {
+        margin: auto;
+    }
+    h4 {
+        margin-top:5px;
+        font-weight: 300;
+        font-size: 28px;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        letter-spacing: 1.1px;
+    }
+    .white-band {
+        padding-top: 100px;
+    }
+    .site-navigation-inner.col-sm-12 {
+    	padding: 0;
+    }
+}
+
+#sbgfullpage {
+	height: 550px;
+}
+
+.jumbo-alt {
+    color:white;
+    position: absolute;
+    top:0;
+    margin: -187px 0 0 0;
+    z-index: 2;
+    font-family: @secondary-font;
+    font-weight: 400;
+    font-size: 94px;
+    text-transform: uppercase;
+
+}
+
+.sbg-page-content {
+	p { 
+	    font-weight: 300;
+	    font-size: 18px;
+	    line-height: 2;
+	}
+}
+/* Social Links Styles
+----------------------------------------------- */
+.social-links {
+    padding: 35px 0 0;
+    text-align: center;
+    li {
+        display: inline;
+        a {
+            padding: 10px 6px 8px;
+            background: rgb(193, 195, 196);
+            margin-right: 6px; 
+            transition: ease .25s;
+            -moz-transition: ease .25s;
+            -webkit-transtion: ease .25s;
+            -o-transition: ease .25s;
+        }
+        .fa {
+            font-size: 22px;
+            width: 32px;
+            text-align: center;
+            color: white;
+        }
+    }
+}
+
+a.fb:hover {
+    background: #3b5998;
+}
+
+a.twitter:hover {
+    background: #3cf;
+}
+
+a.youtube:hover {
+    background: #C3302B;
+}
+
+a.mail-link:hover {
+    background: #000;
+}
+
+p.center-text {
+    text-align: center;
+    padding-top: 20px;
+
+}
+
+a.sbg-page-link {
+    color: @brand-secondary;
+    padding-top: 32px;
+    font-weight: 400;
+    border-bottom: 2px solid rgba(0,0,0,0);
+    transition: ease .25s;    
+    &:hover{
+        border-bottom: 2px solid @gray-light;
+        color: @gray-light;
+        text-decoration: none;
+        padding-bottom: 5px;
+    }
+}
+
+/* Contact Info
+----------------------------------------------- */
+
+abbr[title] {
+    color: #6d6e71;
+    font-weight: 400;
+    margin-right: 8px;
+    border-bottom: 0;
+    font-size: 12px; 
+}
+address {
+	text-align: center;
+	font-weight: 300;
+	margin-top: 35px;
+	margin-bottom: -15px;
+	&.addr-left {
+		text-align: left;
+		margin: auto;
+		font-size: 18px;
+	}
+}
+
+.contact-info {
+    font-size: 14px;
+    margin-bottom: 50px;
+    p {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 0;
+    }
+	.corp-hq-bldg {
+		margin-bottom: 30px;
+    	margin-top: 27px;
+	}	
+    h6{
+        font-size: 24px;
+        margin-bottom: 3px;
+    }
+}
+
+p.italics {
+    font-style: italic;
+    line-height: 17px;
+}
+
+.phone-numbers {
+    padding-top: 12px;
+    .ph-type {
+    	font-weight: 300;
+    	font-size: 14px;
+    }
+}
+
+@media (max-width: 1200px) {
+
+	.timeline li.timeline-inverted .timeline-panel {  
+	  	margin-right: 5px;
+	} 
+
+	.timeline li .timeline-badge {
+	  	left: 46.50%;
+	}
+
+	.single-history, .single-post {
+		.entry-content {
+			max-width: 1366px;
+			padding: 2% 10%;  
+		}
+	}
+
+	.jumbo-alt {
+	    margin: -168px 0 0 0;
+	    font-size: 75px;
+	}
+
+	ul.social-links li {
+	    margin-right: 0;
+	}
+}
+
+@media (max-width: 992px) {
+
+	.company-logo {
+		margin: 15px 0 11px 3%;
+	}
+	
+	.container-row {
+	    margin-left: 5%;
+	    margin-right: 5%;
+	}
+	
+	body #Awards, body #WhatWeDo {
+	    background-image: none;
+	}
+
+	#myCarousel .carousel-caption h1 {
+    	font-size: 35px;
+	}
+
+	#myCarousel .carousel-caption P {
+	    font-size: 20px;
+	}
+
+	.static-hero .carousel-caption h1 {
+	    font-size: 45px;
+	    font-weight: 300;
+	}
+
+	.image-row .image-block.awards {
+	    width: 44.7%;
+	}
+
+	.image-row .image-block.listed-sec {
+	    width: 46%;
+	    height: 350px;
+	}
+	#AnRepCarousel {
+		.item {
+			.col-sm-6 {
+			    padding-left: 5px;
+			    padding-right: 6px;
+			    width: 25%;
+			}
+		}
+		.panel-body {
+		    font-size: 11px;
+		    padding: 5px;
+		}
+	}
+
+	.row.cards, .row.people {
+	    padding-left: 0;
+	    padding-right: 0;
+	}
+
+	.row .intro-12 {
+	    padding: 0 2%;
+	}
+	
+	.row .panel-wrapper.exec-emp {
+	    max-width: 198px;
+	}
+
+	.timeline li .timeline-badge {
+	  left: 45.50%;
+	}
+
+	.timeline::after {
+	  left: 50%;
+	  margin-left: -0.75%;
+	}
+
+	.timeline > li > .timeline-panel {
+    margin-left: -35px;
+	}
+
+	.jumbo {
+		margin-top: -137px;
+		font-size: 80px;
+		line-height: 10px;
+	}
+
+    .jumbo-alt{
+        margin: -153px 0 0 0 ;
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 767px) {
+
+	body.page-template-news .white-band {
+		padding-top: 60px;
+	}
+	.jumbo {
+		margin-top: -135px;
+		font-size: 72px;
+	}
+
+	#sbghistory {
+		height: 400px;
+	} 
+}
+
+/* Admin Style Overides
+----------------------------------------------- */
+
+.admin-bar {
+	#wpadminbar {
+	    position: fixed;
+	}
+}
+
+
+/* Font-Awesome Style Overides
+----------------------------------------------- */
+
+.sbgi-btngroup {
+	.fa {
+		margin-left: 10px;
+	}
+}
+.btn-link {
+    .fa {
+        margin-left: 10px;
+    }
+}
+
+/* Header Style Overrides
+----------------------------------------------- */
+
+.company-logo {
+	margin: 15px 0 11px 60px;
+}
+
+.dropdown-menu > li > a {
+	font-size: 14px;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    background-color: inherit;
+    color: inherit;
+    outline: 0 none;
+    text-decoration: none;
+}
+
+.dropdown-menu {
+	.sub-nav-div {
+		 > a {
+		    background-color: #e9e9e9;
+		    &:hover {
+		    	background-color: #e9e9e9;
+		    }
+		}
+	}
+	.group-divider {
+	    border-bottom: 1px solid #ccc;
+	}
+}
+
+.dropdown-menu .sub-nav-lev3 > a {
+    padding-left: 35px;
+}
+
+.dropdown-menu .sub-nav-lev3.last > a {
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+
+body.admin-bar .navbar-fixed-top { top: 32px !important; }
+
+/* Scroll to top styles
+----------------------------------------------- */
+
+.scroll-to-top {
+  	background: #363636;
+  	background: rgba(100, 100, 100, 0.4);
+  	color: #FFF;
+  	bottom: 4%;
+  	cursor: pointer;
+  	display: none;
+  	position: fixed;
+  	right: 20px;
+  	z-index: 999;
+  	font-size: 16px;
+  	text-align: center;
+  	line-height: 40px;
+  	width: 40px;
+  	border-radius: 4px;
+  	-webkit-transition: background-color 0.3s linear;
+  	-moz-transition: background-color 0.3s linear;
+  	-o-transition: background-color 0.3s linear;
+	transition: background-color 0.3s linear;
+	&:hover {
+		background: #11518a;
+	  	opacity: .8;
+	}
+}
+
+.intro-8 {
+	h2.text-center {
+	    margin-bottom: 32px;
+	    color: #fff;
+	}
+	p {
+	    color: #333;
+	    font-size: 18px;
+	    font-weight: 300;
+	    line-height: 2;
+	}
+}
+
+.intro-12 {
+	margin-bottom: 58px;
+	padding: 0 10%;
+	h2.text-center {
+	    margin-bottom: 32px;
+	}
+	p {
+	    font-size: 20px;
+	    font-weight: 300;
+	    line-height: 35px;
+	}
+	&.lite {
+		h3.text-center, h2.text-center {
+		    color: #fff;
+		}
+		p {
+		    color: #fff;
+		}
+	}
+	&.drk {
+		h2.text-center {
+	    	color: #000;
+		}
+		p {
+		    color: #000;
+		}
+	}
+	&.inv-rep {
+		padding: 0 5%;
+		margin-bottom: 0;
+	}
+}
+
+.post-content {
+	padding: 50px 0;
+}
+
+.post-content:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.white-band {
+    padding-bottom: 100px;
+    padding-top: 100px;
+    margin-left: 0;
+    margin-right: 0;
+    .intro {
+    	p {
+			line-height:35px;
+			color: #000;
+		}
+    }
+}
+
+.grey-band {
+	background-color: #efefef;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    .intro {
+    	p {
+			line-height:35px;
+			color: #000;
+		}
+    }
+}
+
+.stations-band {
+    background-color: #e8e8e8;
+    padding: 20px;
+}
+
+.blue-band {
+	background-color: #00508d;
+    margin-top: 0;
+    h2 {
+	    color: #fff;
+	    margin: 95px 0;
+	}
+	p {
+		line-height:35px;
+		color: #fff;
+	}
+}
+
+.pr-news-band {
+	background-color: #00508d;
+    h2 {
+	    color: #fff;
+	    margin: 100px 0 0 0;
+	}
+	p {
+		line-height:35px;
+		color: #fff;
+	}
+}
+
+.dist-platform {
+   	background-color: #e3e4e4;
+    margin-top: 80px;
+    padding-bottom: 75px;
+    padding-top: 65px;
+    a {
+    	color: #fff;
+    	&:hover {
+    		color:#337ab7;
+    	}
+    }
+    h3 {
+	    color: #000;
+	}
+}
+
+.col-lg-12.adv-platform.last {
+  margin-bottom: 75px;
+}
+
+.row.sbg-page-content {
+    margin-top: 50px;
+}
+
+.row {
+	&.group-3 {
+	    max-width: 1314px;
+	    width: 100%;
+	    margin: 0px auto;
+	}
+	&.cards, &.people {
+	    padding-left: 10%;
+	    padding-right: 10%;
+	}
+	&.file-links {
+	    padding: 0 10% 5%;
+	    .btn-block {
+		    padding-bottom: 25px;
+		    padding-top: 25px;
+		}
+	}
+	&.sbg-page-content {
+	    margin-top: 50px;
+	}
+}
+
+.adv-platform {
+    padding-top: 32px;   
+}
+
+#Awards {
+	.image-row {
+		margin-top: 0px;
+	}
+}
+
+body.page-template-corp-governance .intro-12 {
+  margin-bottom: 0;
+  h2.text-center {
+  		margin-bottom: 40px;
+  }
+}
+
+#Directors .intro-12.drk h2.text-center {
+    padding-top: 48px;
+}
+
+.people {
+	text-align: center;
+	.panel-wrapper {
+		display: inline-block;
+		margin: 0 12px 24px;
+		position: relative;
+		vertical-align: top;
+		&.exec-emp {
+			max-width: 225px;
+			width: 100%;
+			height:auto;
+		}
+		&.off-emp {
+			max-width: 175px;
+			width: 100%;
+			height:auto;
+		}
+		&.key-emp {
+			max-width: 142px;
+			width: 100%;
+			height:auto;
+		}
+		&.sect-16 {
+			max-width: 225px;
+			width: 100%;
+			height:auto;
+			.panel {
+				min-height: 150px;	
+			}
+		}
+	}
+	.panel {
+		border: 0;
+		margin-bottom: 4px;
+		.panel-heading {
+		    font-weight: 700;
+		}
+		.panel-body {
+		    padding: 0;
+		}
+		.panel-footer {
+		    bottom: 0;
+		    padding: 15px 20px;
+		    text-align: center;
+		    display: block;
+		    border: solid 1px #e3e3e3;
+		    min-height: 135px;
+		    background: #f4f4f4;
+		    color: #333;
+			-webkit-box-shadow: 4px 4px 0px 0px rgba(227, 227, 227, 1);
+			-moz-box-shadow:    4px 4px 0px 0px rgba(227, 227, 227, 1);
+			box-shadow:         4px 4px 0px 0px rgba(227, 227, 227, 1);
+			transition: 0.2s ease-in-out;
+		    -webkit-transition: 0.2s ease-in-out;
+		    -moz-transition: 0.2s ease-in-out;
+		    -o-tranisiton: 0.2s ease-in-out; 
+		    i {
+			    font-size: 14px;
+			    font-weight: 300;
+			    display: inline-block;
+			    line-height: 18px;
+			}
+			hr {
+			    margin: 5px 15px 10px;
+			    border-top: solid 1px #c9c9c9;
+			}
+			.btn {
+			    margin-top: 15px;
+			}
+		}
+		.p-link {
+		    display: block;
+		    margin: 0 auto;
+		    color: @brand-primary;
+
+		}
+		a.panel-footer:hover {
+		    background: #efefef;
+    		text-decoration: none;
+	    }
+	}
+}
+
+#business-conduct, #ListedSecurities, #AnnualReports {
+	background-color: #efefef;
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    padding: 100px 0;
+}
+
+.image-row {
+	margin-top: 40px;
+	text-align: center; 
+	h3.text-center {
+	    color: #ffffff;
+	    margin-bottom: 30px;
+	}
+	.image-block {
+		display: inline-block;
+		margin: 0 12px 24px;
+		position: relative;
+		vertical-align: top;
+        box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .4);
+	    &.pdf {
+		    width: 256px;
+		    .panel {
+		    	background-color: #fff;
+		    	margin-bottom: 0;
+		    	text-align: left;
+		    }
+		    .panel-body.pdf-links {
+			    padding: 15px;
+			    min-height: 100px;
+			}
+		}
+		&.awardslink {
+	    	height: 100px;
+	    	margin: 0px auto 100px;
+		    max-width: 990px;
+			width: 100%;
+		    background-color: rgba(0, 80, 141, 0.50); //#00508d;
+		    border: 1px solid #004374;
+		    .title-layer {
+			    background: none;
+			    bottom: 0;
+			    color: #ffffff;
+			    height: 100px;
+			    font-size: 18px;
+			    a { 
+			    	color: #ffffff;
+				    display: block;
+				    margin: 33px auto;
+				    width: inherit;
+				    .fa {
+				    	padding-left: 4px;
+				    }
+				    &:hover {
+				    	color: #606060;
+				    }
+			    }
+			}
+			.image-layer > a {
+			    font-size: 72px;
+			}
+	    }
+	    &.awards {
+	    	height: 173px;
+		   	width: 45.555%;
+		    background-color: #CFD4D8; //rgba(207, 211, 215, 0.9);
+		    .title-layer {
+			    background-color: #00508d;
+			    bottom: 0;
+			    color: #ffffff;
+			    height: 70px;
+			    font-size: 18px;
+			    span { 
+			    	color: #ffffff;
+				    display: block;
+				    height: auto;
+				    margin-top: 8px;
+				    width: 100%;
+			    }
+			}
+			.image-layer > span {
+			    font-size: 72px;
+			    color: #00508e;
+			}
+	    }
+	    &.large {
+		    height: 173px;
+		    width: 256px;
+			.title-layer {
+			    background-color: #ededed;
+			    color: #000;
+			    a { 
+			    	color: #333;
+			    	display: block;
+				    &:hover {
+				    	color: #606060;
+				    }
+			    }
+			}
+			&.webcast {
+				height: auto;
+				img {
+				    filter: none;
+				     -webkit-filter: none;
+				     &:hover {
+				     	filter: none;
+				     	-webkit-filter: none;
+				     }
+				}
+			}						
+	    }
+		&.listed-sec {
+			border: 1px solid #e5e5e5;
+			height: 480px;
+		    width: 100%;
+		    max-width:480px;
+		    background-color:#fff;
+		    text-align:left;
+		   	box-shadow: none;
+		    -webkit-box-shadow: none;
+		    -moz-box-shadow: none;
+		    -o-box-shadow: none;
+		    .image-layer {
+			    padding: 0 30px 30px;
+			}
+		}
+	    &.small {
+		    height: 173px;
+		    width: 256px;
+		    .title-layer {
+			    background: none;
+			    color: #fff;
+			}
+			img {
+				width: 100%;
+			}
+		}
+		.image-layer {
+            z-index: 5;
+            h3 {
+            	font-size: 22px;
+            	font-weight: 700;
+            }
+            p {
+            	font-size: 16px;
+            }
+			> a {
+			    text-decoration: none;
+			}	
+		}
+		.title-layer {
+		    bottom: 20px;
+	    	left: 0;
+		    padding: 5px;
+		    position: absolute;
+		    right: 0;
+		    text-align: center;
+		    -moz-opacity: 0.90;
+			-khtml-opacity: 0.90;
+			opacity: 0.90;
+            font-size: 14px;
+            text-decoration: none;
+            text-transform: uppercase;
+            z-index: 10;
+		}
+	}
+}
+
+/* WP Single Post Styling
+----------------------------------------------- */
+
+.single-history, .single-post {
+	.entry-content {
+	    color: #000000;
+	    font-family: "Lato",Helvetica,Arial,sans-serif;
+	    font-size: 18px;
+	    font-weight: 300;
+	    line-height: 35px;
+	    float: none;
+	    text-align: left;
+	    max-width: 900px;
+	    margin: 0 auto;
+	    
+	}
+}
+
+.single {
+	.site-content {
+	    margin-top: @content-top-margin;
+	}
+	.entry-header {
+		background-color: #00508d;
+		h1 {
+		 	color: #fff;
+		 	margin: 50px auto;
+		 	padding-bottom: 0;
+		 	font-weight: 300;
+		}	
+	}
+	.page-header {
+	    margin-top: 0;
+	}
+	.entry-content {
+    	font-weight: 300;
+    	line-height: 2;
+    	
+	}
+	.col-lg-8.entry-content {
+	    padding-right: 50px;
+	}
+	.entry-meta {
+		border-bottom: 1px solid #E3E4E4;
+	    color: @brand-secondary;
+	    text-align: left;
+	    margin-bottom: 30px;
+	    padding-bottom: 6px;
+	    overflow: auto;
+	    font-family: @secondary-font;
+	    font-size: 16px;
+	    .posted-on {
+			border-right: 1px solid #E3E4E4;
+		    display: block;
+		    float: left;
+		    padding: 3px 10px 3px 0;
+		}
+		.entry-date {
+			&.published {
+				margin-right: 10px;
+			}
+		}
+		.byline {
+			display: block;
+			padding: 3px 10px;
+		    float: left;
+		}	  
+	}
+}
+
+body.single-pr-news {
+	.page-header {
+		margin-bottom: 50px;
+	}
+}
+
+.single-pr-news {
+	.entry-header {
+		background-color: #00508d;
+		h1 {
+		 	font-size: 32px;
+	    	max-width: 1314px;
+	    	width: 100%;
+	    	margin: 25px auto;
+		}
+		.posted-on a, .byline a {
+			color: #ffffff;
+		}
+	}
+}
+
+.people {
+	.entry-header h1 {
+		margin: 25px auto 12.5px auto;
+	}
+	.entry-content {
+	    color: #000000;
+	    font-size: 20px;
+	    font-weight: 300;
+	    font-family: "Lato",Helvetica,Arial,sans-serif;
+	    line-height: 35px;
+	    text-align: left;
+	    p {
+	    	margin-bottom: 20px;
+	    }
+	}
+	.page-header {
+	    border: none;
+	    margin-bottom: 0;
+	    hr {
+		    width: 22%;
+		    margin: 18px auto;
+		}
+		i {
+		    font-weight: 300;
+		    color:#fff;
+		    margin-bottom: 25px;
+		    display: block;
+		}
+	}
+	.container {
+		max-width: 900px;
+	}
+}
+
+/* WP Post Page - Recent Posts Styling
+----------------------------------------------- */
+
+.recent-posts-list {
+    padding: 15px 0 0;
+    overflow: auto;
+    > li {
+	    font-size: 16px;
+	    list-style: none;
+	    font-weight: 400;
+	    margin-bottom: 18px;
+	    a {
+	    	color: @brand-primary;
+	    	display: block;
+    		line-height: 24px;
+	    	&:hover {
+	    		color: @gray-light;
+	    	}
+	    }
+	    .more-link {
+		    margin-top: 40px;
+		}
+	}
+	.link-title {
+		font-family: @secondary-font;
+		margin-bottom: 0;
+	
+	}
+}
+.single-entry-header {
+	margin-top: 36px;
+}
+
+/* WP Page Styling
+----------------------------------------------- */
+
+.page {
+	.edittext {
+	    margin:60px 80px;
+	}
+	.site-content {
+	    margin-top: @content-top-margin;
+	}
+	.widecolumn {
+		&.page-title {
+	    	background-color: #00508d;
+	    	position: relative;
+	    	h1 {
+	    	 	color: #fff;
+	    	 	margin: 34px auto 42px;
+	    	 	text-transform: lowercase;
+	    	}
+	    	.btn {
+			    background: none;
+			    border: none;
+			    color: #ffffff;
+			    position: absolute;
+			    right: 5%;
+			    text-transform: uppercase;
+			    top: 35%;
+			    &:hover {
+			    	color: #ccc;
+			    }
+			}
+			.fa {
+			    margin-right: 10px;
+			}
+		}
+		.contact-form {
+		    margin: 0 auto;
+		    width: 75%;
+	    }
+	}
+}
+
+.featured-image {
+	img {
+		margin: 0px auto;
+	}
+}
+
+footer {
+	&.site-footer{
+		background-color: #333333;
+    	padding: 35px;
+    	color:#BCBEC0;
+    	font-size: 12px;
+    	text-align: center;
+    	a {
+    		color:#BCBEC0;
+    	}
+	}
+	.logo-area {
+	    margin-bottom: 25px;
+	    a {
+	    	display: inline-block;
+	    	margin: 0 10px;
+	    	img {
+	    		margin:0;
+	    	}
+	    }
+	}
+	.footer-navigation {
+		display: table;
+		margin: 0 auto 25px;
+		.menu-list {
+			text-align: center;
+			li {
+				display: inline-block;
+				border-left: solid 1px #BCBEC0;
+				a {
+					font-size: 14px;
+	    			text-transform: uppercase;
+	    			padding: 0 15px;
+	    			&:hover {
+	    				color: #6bb6ff;
+	    				background: none;
+	    			}
+				}
+			}
+			li:first-child{
+			    border-left: none;
+			}
+		}	
+	}
+}
+
+.sbgi-btngroup {
+    margin-top: 25px;
+    overflow: auto;
+    .btn {
+	    margin: 5px;
+	}
+}
+
+.sbgi-facts {
+	padding: 99px 20% 0;
+    text-align: center;
+    .stock-fact, .fact {
+	    margin: 0 0 10px;
+	    padding: 0 0 10px;
+        border-color: #ececec;
+        border-image: none;
+        border-style: none none solid;
+        border-width: 0 0 1px;
+
+    }
+    .fact-last {
+        border: none;
+    }
+    .factor.oswald {
+	    color: @brand-secondary;
+	    font-size: 30px;
+	    font-weight: 400;
+	    font-family: @secondary-font;
+	    text-align: center;
+	}
+	.stock-title, .factor-title {
+	    font-size: 15px;
+	    font-weight: 300;
+	    text-transform: uppercase;
+	}
+	.factor {
+		&.oswald.percent:after {
+		    content: "%";
+		    font-size: 14px;
+		    font-weight: 400;
+		    padding-left: 3px;
+		}
+	}
+    .stock-data {
+	    color: @brand-secondary;
+	    font-size: 30px;
+	    font-weight: 400;
+	    text-align: center;
+        font-family: @secondary-font;
+	}
+	.fa{
+	    font: 16px/1 FontAwesome;
+	}
+	.fa-caret-up {
+	    color: #00ad18;
+	}
+}
+
+.affil-img {
+	margin-top: 100px;
+}
+
+.invest-form {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.cards {
+	.panel {
+		position: relative;
+		.panel-heading {
+		    font-weight: 700;
+		    font-size: 22px;
+		}
+		.panel-body {
+		    padding: 15px 30px 20px 30px;
+		    font-size: 16px;
+		}
+		.panel-footer {
+		    bottom: 0;
+		    left: 0;
+		    padding-top: 0;
+		    position: absolute;
+		    right: 0;
+		    text-align: right;
+		}
+	}
+	.panel.panel-default {
+	    min-height: 320px;
+	    border: solid 1px #ccc;
+	    &.dl {
+	    	min-height: 130px;
+	    }
+	}
+}
+
+.panel.panel-default.sbg-large-box {
+    min-height: 350px;
+}
+
+.pdf-links {
+	> a {
+	    display: inline-block;
+	    font-size: 14px;
+	    font-weight: 700;
+	 }
+	 .fa {
+	 	float: left;
+	 	color: #ccc;
+	 	font-size: 20px;
+	 	margin-right: 12px;
+	 	line-height: 12px;
+	 }
+    .pdfIcon {
+    	float: left;
+    	margin-right: 10px;
+    }
+    .pdfFile {
+	    display: inherit;
+	    font-size: 14px;
+	    
+	}
+    ul {
+    	margin-bottom: 0;
+    	padding: 0;
+    }
+    li {
+	    display: block;
+	    overflow: visible;
+	    padding-bottom: 15px;
+	    &:last-child {
+		    padding-bottom: 0;
+		}
+	}
+}
+
+.table {
+    margin-top: 50px;
+}
+
+/*Investor Relations styles*/
+
+body.page-template-investor-relations {
+	.post-content {
+		padding: 0;
+	}
+}
+
+#AnalystCoverage {
+	.intro-12 {
+		margin-bottom: 0;
+		h4 {
+			padding-top: 25px;
+		}
+	}
+}
+
+.investor-items {
+	list-style: none;
+	margin: 45px 0 0 0;
+	padding: 0;
+	
+	li {	
+		float:left;
+		width: 25%;
+		padding: 0 5px 5px 0;
+		a img {
+		border: solid 1px @gray-lighter;
+		opacity: .80;
+	    transition: 0.2s ease;
+	    -webkit-transition: 0.2s ease;
+	    -moz-transition: 0.2s ease;
+	    -o-tranisiton: 0.2s ease;
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+#InvestorPresentations {
+	.intro-12 {
+		margin-bottom: 0;
+	}
+}
+
+#NonGAAP .fa {
+    margin-left: 8px;
+}
+
+/*Main CSS for Investor relations calendar events*/
+
+.col-lg-12 .investor-relations-cal {
+  display: inline;
+}
+
+.investor-relations-cal {
+	 .panel {
+	 	&.panel-default {
+		    border: medium none;
+		    box-shadow: none;
+		    margin-bottom: 0;
+		}
+		.panel-heading {
+			padding: 0 0 20px 0;
+		}
+		.panel-body {
+		    padding: 0;
+		}
+	}
+  	h3 {
+    	margin-top: 0px;
+    	
+  	}
+  	.cal-link{
+    	display: block;
+    	margin-bottom: 25px;
+  	}
+  	&.col-lg-12 {
+  		padding: 0 10%;
+  	}
+  	.cal-item {
+    	border: @calBorder;
+    	background-color: #fff;
+    	height: 100px;
+    	width: 100%;
+    	margin: 0px auto;
+    	.cal-block {
+	    	display: block;
+	    	float: left;
+	    	margin-right: 0;
+	    	vertical-align: top;
+    	}
+	    .cal-day, .cal-month, .cal-title span {
+	      	vertical-align: middle;
+	    }
+	    .cal-title {
+	      	margin-left: 0px;
+	      	border-left: @calBorder;
+	      	background-color: @calTitleColor;
+	     	width: 80%;
+	      	height: 99px;
+	      	line-height: 97px;
+	      	color: black;
+	      	span {
+		        margin-left: 20px;
+		        margin-right: 20px;
+		        line-height: normal;
+		        display: inline-block;
+		    }
+	    }
+	    .cal-item:not(:last-child) {
+	      	margin-bottom: 20px;
+	    }
+	    .cal-date {
+	      	width: 20%;
+		    .cal-day, .cal-month {
+		        text-align: center;
+		    }
+		    .cal-day {
+		        height: 70px;
+		        color: @calBlueColor;
+		        letter-spacing: 1px;
+		    	line-height: 65px;
+		        font-size: 32px;
+		        font-family: @secondary-font;
+		    }
+		    .cal-month {
+		        background-color: @calBlueColor;
+		        color: white;
+		        height: 30px;
+		        line-height: 30px;
+		        text-transform: uppercase;
+		        width: auto;
+	      	}
+		}
+  	}
+}
+
+/*End of main CSS for investor calendar.*/
+
+@media (max-width: 768px) {
+
+	/*global framework changes*/
+	
+	.container-fluid {
+		padding: 0;
+		.row {
+			margin: 0 auto;
+		}
+	}
+
+	.container {
+		width: auto;
+	}
+
+    #logo {
+        margin-left: 30px;
+    }
+
+    .navbar-right {
+        margin-right: 30px;
+    }
+	.attachment-sbgn-post-small.wp-post-image {
+	    margin: 5% auto;
+	}
+
+	.admin-bar .sbgi-spotlight {
+    	top: auto;
+	}
+
+	body #myCarousel {
+	    max-height: 37%;
+	}
+
+	body.admin-bar .navbar-fixed-top {
+	    top: 46px !important;
+	}
+
+	.right.carousel-control {
+		padding-left: 0;
+	}
+
+    .timeline:before {
+	    left: 10px;
+	}
+
+	.timeline > li > .timeline-badge {
+	    left: -39px;
+	    margin-left: 0;
+	    top: 30px;
+	}
+
+    .timeline > li > .timeline-panel {
+        float: left;
+        margin-left: 10px;
+        width: 95%;
+    }
+
+    .timeline li.timeline-inverted .timeline-panel{
+        float: left;
+        margin-left: 10px;
+        margin-right: 0;
+    }
+
+    .timeline > li > .timeline-panel:after {
+        border-left-width: 0;
+        border-right-width: 14px;
+        left: -14px;
+        right: auto;
+        }
+
+    .timeline-title {
+        color: @brand-primary;
+        padding-left: 15px;
+     }
+
+    .timeline-normal .timeline-heading {
+    	position: initial;
+	}
+
+	.timeline-inverted .timeline-heading {
+    	position: initial;
+	}
+
+	.timeline::after {
+			left: 8px;
+			margin-left: 0;
+	}
+
+	.image-row .image-block.awards {
+	    width: 44.7%;
+	}
+	
+	.row .image-row .image-block.listed-sec {
+	   height: 350px;
+	}
+	
+    .jumbo-alt {
+	    margin: -140px 0 0 0;
+	    font-size: 40px;
+  	}
+
+  	#sbgfullpage {
+	    height: 330px;
+	    background-size: 100% !important;
+	}
+
+	.page-template-history {
+		background: @brand-primary !important;
+	}
+
+	.fscf-div-form {
+	    width: 100%;
+    }
+
+    .history-bg-pattern {
+	    margin-left: 0;
+	    margin-right: 0;
+	}
+
+	#SbgiCareers {
+   		background-image: none !important;
+   		padding: 0;
+   		img {
+   			display: block;
+   		}
+   		.container {
+   			padding: 0;
+   		}
+	   	.col-md-8 {
+	   		padding: 0;
+	   	}
+	   	p {
+	   		margin: 0 30px;
+	   		background: white;
+	   		padding: 0 30px;
+	   	}
+	   	.sbgi-btngroup {
+	   		background: white;
+	   		margin: 0 30px;
+	   		padding: 0 30px 50px;
+	   	}
+	   	h2 {
+	   		position: absolute;
+   			bottom: 0;
+	   		background: white;
+   			margin: 0 30px;
+   			padding: 15px 30px;
+   			width: calc(100% - 60px);
+   			width: -moz-calc(100% - 60px); 
+   			width: -webkit-calc(100% - 60px); 
+   			width: -o-calc(100% - 60px);   
+	   	}
+   	}
+   	.intro-full {
+   		position: relative;
+   	}
+
+   	.investor-items li {
+   		width: 33.33%;
+   	}
+
+   	body.page-template-sbgi-stations-tiles .fa {
+    font-size: 30px;
+    margin-top: 5px;
+	}
+
+	body.page-template-sbgi-stations-gmap .fa {
+    font-size: 30px;
+    margin-top: 5px;
+	}
+
+}
+
+@media (max-width: 480px) {
+
+    .single .site-content {
+        margin-top: 60px;
+    }
+
+    .page .site-content {
+        margin-top: 60px;
+    }
+
+    h1, .h1 {
+        font-size: 39px;
+    }
+
+    h2, .h2 {
+        font-size: 34px;
+        margin: 0 0 25px 0;
+    }
+
+    h3, .h3 {
+        font-size: 30px;
+        margin: 0;
+    }
+
+    h4, .h4 {
+    	margin: 0 0 25px 0
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .wp-relative {	
+    	position: static;
+    	padding-top: 12.5px;
+
+    }
+
+    .btn-link {
+    	background: @brand-primary;
+    	padding: 10px 5px;
+    	width: 100%;
+    	text-align: center;
+    	border-radius: 2px;
+    	color: white;
+    }
+
+    .navbar-brand, footer a.navbar-brand {
+        display: none;
+    }
+
+    .navbar-default .navbar-toggle {
+        margin-top: 15px;
+    }
+
+    img.company-logo {
+        margin: 10px 20px 5px 0;
+    }
+
+    .intro-12 p, .intro-8 p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .col-lg-12.intro-12.drk {
+        padding: 0 15px;
+    }
+
+    .static-hero .carousel-caption {
+    	left: 4%;
+    	right: 4%;
+    }
+
+    .static-hero .carousel-caption h1 {
+        font-size: 24px;
+    }
+
+    .static-hero .carousel-caption p {
+        font-size: 14px;
+    }
+
+    .hero-container {
+        margin-top: 0;
+    }
+
+    .pr-news-band h2 {
+    	margin-top: 50px;
+    }
+
+    #News .more-pr {
+    	margin-bottom: 50px;
+    }
+
+    .white-band {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .grey-band {
+        padding-top: 0;
+        padding-bottom: 50px;
+    }
+
+    .added-margin {
+    	margin-top: 15px;
+    	margin-right: 0;
+    }
+
+    .blue-band h2 {
+    	margin: 50px 0 0 0;
+    }
+
+    .adv-platform {
+    	padding-top: 50px;
+    }
+
+    .row .intro-12 {
+    	padding: 0 15px;
+    }
+
+    #SbgiCareers  {
+    padding-top: 50px;
+	}
+
+    .row .image-row .image-block.awards {
+        width: 100%;
+        margin: 0px 0px 24px 0px;
+    }
+    
+    .row .image-block.listed-sec {
+        margin: 0 0 24px;
+    }
+
+    .affil-img {
+	margin-top: 40px;
+	}
+
+    body .row .image-row .image-block.listed-sec {
+        height: auto;
+        width: 100%;
+    }
+
+	#first-image-row {
+	    margin-left: 15px;
+	    margin-right: 15px;
+	}
+
+	#WhatWeDo .col-lg-12 .image-row {
+	    margin-left:auto;
+	    margin-right: auto;
+	}
+
+    .image-row {
+    	.image-block {
+    		margin: 0 auto 24px;
+
+	    	&.large {
+	    	width: 100%;
+	    	height: auto;	
+	    	} 
+
+	    	&.small {
+	    		width: 100%;
+	    		height: auto;
+
+	    		img {
+	    			width: 100%;
+	    		}
+	    	}
+    	}
+    	.image-layer h3 {
+    		padding: 15px 0;
+    	}
+    }
+
+    .dist-platform {
+    	margin-top: 50px;
+    	padding-top: 50px; 
+    	padding-bottom: 50px;
+    }
+
+    .investor-relations-cal {
+        &.col-sm-12 {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .cal-item {
+            .cal-date {
+                width: 25%;
+            }
+            .cal-title {
+                width: 75%;
+            }
+        }
+    }
+    
+    .jumbo-alt{
+        margin: -80px 0 0 0;
+        font-size: 32px;
+    } 
+
+    .jumbo {
+		font-size: 72px;
+	    margin: -62px 0 0 0;
+	}
+
+    .sbg-page-content p{
+	    font-size: 18px;
+	    line-height: 1.75;
+	}
+
+	body.page-template-news .white-band {
+		padding-top: 25px;
+	}
+
+	body.single-history .white-band {
+		padding-top: 30px;
+	}
+
+	body.page-template-sbgi-page-25-75 {
+		.white-band {
+			padding-top: 50px;
+		}
+	}
+
+	#sbghistory {
+		height: 180px;
+	}
+
+	#sbgfullpage {
+	   	height: 150px;	   	
+	}
+
+	.sbg-page-content p{
+	    font-size: 18px;
+	    line-height: 1.75;
+	}
+
+	#business-conduct {
+		padding: 50px 0;
+	}
+
+	.timeline > li > .timeline-panel {
+	    padding: 20px 10px;
+	}
+
+	.timeline > li > .timeline-panel {
+		margin-left: 10px;
+		background: rgba(255, 255, 255, .85);
+	}
+
+	.timeline > li > .timeline-panel:after {
+		opacity: .85;
+	}
+
+	.timeline li.timeline-inverted .timeline-panel {  
+	  	margin-left: 10px;
+	}
+		
+	.fscf-div-form .fscf-button-submit {
+		width: 100%;
+	}
+	
+	.contact-info {
+		text-align: center !important;
+	}
+	address {
+		text-align: center !important;
+	}
+	
+	footer {
+		.footer-navigation {
+			.menu-list {
+				li {
+				  border: none;
+				  display: block;
+				  width: 100%;
+				  margin: 10px auto;
+				}
+			}
+		}
+	}
+
+	#AnalystCoverage {
+		h4 {
+			margin-top: 25px;
+		}
+	}
+
+	.investor-items {
+		margin: 25px 0 0 0;
+		li {
+   		width: 50%;
+   			&:nth-child(even) {
+   				padding-right: 0;
+   			}  	
+   		}
+   	}
+
+   	.row.file-links .btn-block {
+   		margin-bottom: 25px;
+   	}
+
+   	#ReportFilings .row.file-links {
+   		padding: 0;
+   	}
+
+   	#ReportFilings .post-content {
+   		padding: 0;
+   		h3 {
+   			padding-top: 25px;
+   		}
+   	}
+
+   	#ListedSecurities {
+   		.intro-12 {
+	   		h2 {
+	   			padding-top: 50px;
+	   		}  			
+   		}
+   	}
+
+   	.row.people {
+   		padding-left: 0;
+   		padding-right: 0;
+   	}
+
+   	body.page-template-sbgi-stations-tiles .fa {
+    margin-top: 0px;
+	}
+
+	body.page-template-sbgi-stations-gmap .fa {
+    margin-top: 0px;
+	}
+}
+
+@media (max-width: 992px) {
+
+	.investor-relations-cal {
+		h3 {
+		    font-size: 30px;
+		}
+		.cal-title.cal-block > span {
+		    font-size: 16px;
+		}
+		.panel-heading {
+		    padding: 0;
+		}
+		.panel-body {
+		    padding: 0;
+		}
+		.cal-item {
+			.cal-date {
+				.cal-month {
+			    	font-size: 11px;
+				}
+				.cal-day {
+				    font-size: 22px;
+				}
+			}
+		}
+	}	
+}
+
+@media (min-width: 1024px) {
+	.image-row .image-block.awards {
+	   	width: 100%;
+	    max-width: 312px
+	}	
+}

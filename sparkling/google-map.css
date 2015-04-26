@@ -1,0 +1,274 @@
+/*
+ * Global styles for SBGI Google maps.  The map is displayed on the News Opperatiuons and TV Station pages.
+----------------------------------------------- */
+#OurStations .sbgi-map {
+  padding-left: 0;
+  padding-right: 0;
+}
+html {
+  height: 80% !important;
+}
+html.sb-scroll-lock.sb-active:not(.sb-static) {
+  overflow: hidden;
+}
+body.page-template-sbgi-stations-gmap .container-fluid {
+  padding: 0;
+}
+body.page-template-sbgi-stations-gmap .container-fluid .row {
+  margin: 0;
+}
+.gmnoprint img {
+  max-width: none;
+}
+#sb-site,
+.sb-slidebar,
+#MAP {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#MAP {
+  width: 100%;
+  overflow-x: hidden;
+  min-height: 100%;
+  height: auto;
+  position: relative;
+}
+#sb-site {
+  background-color: #e5e3df;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.sb-slidebar {
+  background-color: #eeeeee;
+  background-color: rgba(239, 239, 239, 0.9);
+  box-shadow: -1px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  background-image: url("http://sbgi.net/wp-content/themes/sparkling/images/texture-bg2_360.png") repeat-x bottom;
+  height: 100%;
+  overflow-y: auto;
+  padding: 15px 20px 20px;
+  position: absolute;
+  top: 0;
+  display: none;
+  width: 30%;
+  -webkit-box-shadow: -1px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -1px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translate(0px);
+}
+.sb-slidebar.sb-active {
+  display: block;
+}
+.sb-slidebar.sb-static,
+html.sb-static .sb-slidebar {
+  position: absolute;
+}
+.sb-left {
+  left: 0;
+}
+.sb-right {
+  right: 0;
+}
+.sb-style-overlay {
+  z-index: 1000;
+}
+.sb-momentum-scrolling {
+  -webkit-overflow-scrolling: touch;
+}
+.sb-width-thin {
+  width: 15%;
+}
+.sb-width-wide {
+  width: 45%;
+}
+#sb-site,
+.sb-slide,
+.sb-slidebar {
+  -webkit-transition: -webkit-transform 400ms ease;
+  -moz-transition: -moz-transform 400ms ease;
+  -o-transition: -o-transform 400ms ease;
+  transition: transform 400ms ease;
+  -webkit-transition-property: -webkit-transform, left, right;
+  -webkit-backface-visibility: hidden;
+}
+.sb-hide {
+  display: none;
+}
+/*
+ * Map Reset Button Styling 
+ **************************************************************/
+#map-reset {
+  position: absolute;
+  z-index: 1000;
+  top: 8px;
+  left: 50px;
+  text-decoration: none;
+  color: #ffffff;
+  background: #e37113;
+  display: block;
+  padding: 8px 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #999;
+  line-height: 0;
+  font-weight: bold;
+  font-family: arial;
+  cursor: pointer;
+}
+/*
+ * Map Slideout Inside Panel Styling
+ **************************************************************/
+#panel-inner {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 0px 15px -8px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 15px -8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 15px -8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+#sb-panel {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+}
+#sb-panel li {
+  float: left;
+  width: 100%;
+}
+#sb-panel .station-logo img {
+  max-height: 80px;
+}
+#sb-panel .station-letters {
+  font-size: 30px;
+  font-weight: 700;
+  float: left;
+  margin: 15px 15px 0 0;
+  padding: 0;
+  display: block;
+  width: auto;
+}
+#sb-panel .station-city-state {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 400;
+  width: auto;
+  display: block;
+  padding-top: 35px;
+}
+#sb-panel .station-address {
+  clear: both;
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+#sb-panel .station-url {
+  font-size: 14px;
+  font-weight: 700;
+}
+#sb-panel .station-url a {
+  color: #178fd1;
+}
+#sb-panel .station-url .sb-value {
+  margin: 15px 0;
+  display: block;
+}
+.station-phone .sb-column,
+.station-fax .sb-column,
+.station-affiliation .sb-column {
+  width: 80px;
+  display: inline-block;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.station-phone .sb-value,
+.station-fax .sb-value {
+  font-size: 14px;
+  font-weight: 300;
+}
+.station-affiliation {
+  padding-top: 5px;
+}
+.station-affiliation .sb-value {
+  font-size: 14px;
+  font-weight: 300;
+}
+#sb-close {
+  text-align: right;
+  padding-bottom: 15px;
+  line-height: 0;
+  color: #666;
+  cursor: pointer;
+}
+.labels {
+  color: #D33302;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 35px;
+  white-space: nowrap;
+  padding: 3px 2px;
+  text-shadow: 1px 1px #ffffff;
+}
+@media (max-width: 480px) {
+  .sb-slidebar {
+    width: 70%;
+  }
+  .sb-width-thin {
+    width: 55%;
+  }
+  .sb-width-wide {
+    width: 85%;
+  }
+}
+@media (min-width: 481px) {
+  .sb-slidebar {
+    width: 55%;
+  }
+  .sb-width-thin {
+    width: 40%;
+  }
+  .sb-width-wide {
+    width: 70%;
+  }
+}
+@media (min-width: 768px) {
+  .sb-slidebar {
+    width: 40%;
+  }
+  .sb-width-thin {
+    width: 25%;
+  }
+  .sb-width-wide {
+    width: 55%;
+  }
+}
+@media (min-width: 992px) {
+  .sb-slidebar {
+    width: 30%;
+  }
+  .sb-width-thin {
+    width: 15%;
+  }
+  .sb-width-wide {
+    width: 45%;
+  }
+}
+@media (min-width: 1200px) {
+  .sb-slidebar {
+    width: 23%;
+  }
+  .sb-width-thin {
+    width: 5%;
+  }
+  .sb-width-wide {
+    width: 35%;
+  }
+}

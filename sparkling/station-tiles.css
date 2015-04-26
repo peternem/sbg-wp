@@ -1,0 +1,110 @@
+.boxed {
+  height: auto;
+  margin: 35px auto;
+  max-width: 1170px;
+  width: 100%;
+  text-align: center !important;
+}
+#portfolio {
+  background: #ccc;
+  min-height: 900px;
+  width: 100%;
+  overflow: hidden;
+}
+.portfolio {
+  background: #ccc;
+  min-height: 900px;
+}
+.filter-menu ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+.filter-menu ul li {
+  display: inline-block;
+  margin: 5px;
+}
+.filter-menu ul li a {
+  color: #363535;
+  font-size: 15px;
+  padding: 3px 9px;
+  background: transparent;
+  border: 1px solid #363636;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.filter-menu ul li a:hover,
+.filter-menu ul li a.selected {
+  background: #3e3e3e;
+  border: 1px solid #3e3e3e;
+  color: white;
+}
+.portfolio-items {
+  margin-top: 3%;
+  margin-bottom: 3%;
+  width: 100.1%;
+}
+.portfolio-items .item {
+  width: 20%;
+  height: auto;
+  float: left;
+  position: relative;
+  z-index: 2;
+}
+.portfolio-items .item .work-image {
+  display: block;
+  overflow: hidden;
+}
+.portfolio-items .item .work-image img {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.portfolio-items .item .work-image h1 {
+  background: none repeat scroll 0 0 #333333;
+  font-size: 16px;
+  margin: 0;
+  padding: 10px 15px;
+  text-align: left;
+  color: #fff;
+}
+.portfolio-items .item .work-image .cityState {
+  font-size: 12px;
+  font-weight: 400;
+}
+.portfolio-items .item .item-details {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  z-index: 3;
+  left: 0;
+  bottom: 10px;
+  padding: 0 10px;
+}
+@media (max-width: 1024px) {
+  .portfolio-items .item {
+    width: 25%;
+  }
+}
+@media (max-width: 768px) {
+  .portfolio-items .item {
+    width: 50%;
+  }
+}
+@media (max-width: 480px) {
+  .portfolio-items .item {
+    width: 100%;
+  }
+  .portfolio-items .item .work-image h1 {
+    font-size: 14px;
+  }
+  .portfolio-items .item .work-image .cityState {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,7 @@
+#investor_relations_documents_list, #investor_relations_upload_file_button{
+    margin-top: 5px;
+}
+
+#investor_relations_documents_list .ui-sortable-handle:hover{
+    cursor: move;
+}
