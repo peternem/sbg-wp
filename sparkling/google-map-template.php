@@ -1,4 +1,4 @@
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCnjNDDK_aJuBJC5ypAzxuMJKp5DWqqTz4"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key="></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slidebars/0.10.2/slidebars.min.js"></script>
 <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
 <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel.js"></script>
